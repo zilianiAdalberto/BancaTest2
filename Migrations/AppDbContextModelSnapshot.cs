@@ -19,24 +19,6 @@ namespace BancaTest2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BancaTest2.Models.Cliente", b =>
-                {
-                    b.Property<int>("ClienteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClienteCognome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClienteNome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ClienteId");
-
-                    b.ToTable("Clienti");
-                });
-
             modelBuilder.Entity("BancaTest2.Models.MovimentoAvere", b =>
                 {
                     b.Property<int>("MovimentoAvereId")
@@ -47,11 +29,11 @@ namespace BancaTest2.Migrations
                     b.Property<double>("Cifra")
                         .HasColumnType("float");
 
-                    b.Property<string>("ClienteId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("MovimentoData")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UtenteId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovimentoAvereId");
 
@@ -68,11 +50,11 @@ namespace BancaTest2.Migrations
                     b.Property<double>("Cifra")
                         .HasColumnType("float");
 
-                    b.Property<string>("ClienteId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("MovimentoData")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UtenteId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovimentoDareId");
 

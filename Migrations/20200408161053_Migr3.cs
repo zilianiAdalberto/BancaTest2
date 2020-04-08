@@ -2,7 +2,7 @@
 
 namespace BancaTest2.Migrations
 {
-    public partial class MigrVista : Migration
+    public partial class Migr3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

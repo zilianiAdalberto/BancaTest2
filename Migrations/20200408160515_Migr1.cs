@@ -49,26 +49,12 @@ namespace BancaTest2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clienti",
-                columns: table => new
-                {
-                    ClienteId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteNome = table.Column<string>(nullable: true),
-                    ClienteCognome = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clienti", x => x.ClienteId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "MovimentiAvere",
                 columns: table => new
                 {
                     MovimentoAvereId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteId = table.Column<string>(nullable: true),
+                    UtenteId = table.Column<string>(nullable: true),
                     MovimentoData = table.Column<DateTime>(nullable: false),
                     Cifra = table.Column<double>(nullable: false)
                 },
@@ -83,7 +69,7 @@ namespace BancaTest2.Migrations
                 {
                     MovimentoDareId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteId = table.Column<string>(nullable: true),
+                    UtenteId = table.Column<string>(nullable: true),
                     MovimentoData = table.Column<DateTime>(nullable: false),
                     Cifra = table.Column<double>(nullable: false)
                 },
@@ -254,9 +240,6 @@ namespace BancaTest2.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Clienti");
 
             migrationBuilder.DropTable(
                 name: "MovimentiAvere");

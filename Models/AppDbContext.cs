@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity; // aggiunti per creare identità scaffolded
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;// idem sopra
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Debug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +35,15 @@ namespace BancaTest2.Models
 
         public DbSet<MovimentoUtente> MovimentiUtente{ get; set; }
 
+
+        public static readonly LoggerFactory _myLoggerFactory = new LoggerFactory(new[] {
+            new DebugLoggerProvider()
+        });
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLoggerFactory(_myLoggerFactory);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

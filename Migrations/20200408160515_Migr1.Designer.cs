@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BancaTest2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200408125141_MigrVista4")]
-    partial class MigrVista4
+    [Migration("20200408160515_Migr1")]
+    partial class Migr1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,24 +20,6 @@ namespace BancaTest2.Migrations
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("BancaTest2.Models.Cliente", b =>
-                {
-                    b.Property<int>("ClienteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClienteCognome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClienteNome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ClienteId");
-
-                    b.ToTable("Clienti");
-                });
 
             modelBuilder.Entity("BancaTest2.Models.MovimentoAvere", b =>
                 {
@@ -49,11 +31,11 @@ namespace BancaTest2.Migrations
                     b.Property<double>("Cifra")
                         .HasColumnType("float");
 
-                    b.Property<string>("ClienteId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("MovimentoData")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UtenteId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovimentoAvereId");
 
@@ -70,36 +52,15 @@ namespace BancaTest2.Migrations
                     b.Property<double>("Cifra")
                         .HasColumnType("float");
 
-                    b.Property<string>("ClienteId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("MovimentoData")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UtenteId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MovimentoDareId");
 
                     b.ToTable("MovimentiDare");
-                });
-
-            modelBuilder.Entity("BancaTest2.Models.MovimentoUtente", b =>
-                {
-                    b.Property<int>("MovimentoUtenteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("Cifra")
-                        .HasColumnType("float");
-
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("MovimentoData")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MovimentoUtenteId");
-
-                    b.ToTable("MovimentiUtente");
                 });
 
             modelBuilder.Entity("BancaTest2.Models.Utente", b =>

@@ -15,11 +15,11 @@ namespace BancaTest2.Models
         }
         public MovimentoDare(string id, double importo)
         {
-            ClienteId = id;
+            UtenteId = id;
             MovimentoData = DateTime.Today;
             Cifra = -importo;
         }
-        public string ClienteId { get; set; }
+        public string UtenteId { get; set; }
 
         public DateTime MovimentoData { get; set; }
         public double Cifra{ get; set; }

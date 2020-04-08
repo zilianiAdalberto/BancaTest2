@@ -27,7 +27,7 @@ namespace BancaTest2
                 try
                 {
                     var context = services.GetRequiredService<AppDbContext>(); //inizializza db
-           //         AppSeed.Seed(context);
+                    AppSeed.Seed(context);
                 }
                 catch (Exception ex)
                 {
