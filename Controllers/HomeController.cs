@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BancaTest2.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace BancaTest2.Controllers
 {
@@ -83,14 +84,14 @@ namespace BancaTest2.Controllers
 
 
 
+      
+            public async Task<ActionResult<IEnumerable<MovimentoUtente>>> ListMovimentiUtente()
+            {
+                //   return await _context.Biglietti.ToListAsync();
+                var movimenti = await _appdbcontext.MovimentiUtente.ToListAsync();
 
-        public async Task<ActionResult<IEnumerable<MovimentoUtente>>> ListMovimentiUtente()
-        {
-
-            var movimenti = await _appdbcontext.MovimentiUtente.ToListAsync();
-
-            return View(movimenti);
-        }
+                return View(movimenti);
+            }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

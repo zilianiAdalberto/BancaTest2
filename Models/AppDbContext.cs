@@ -42,11 +42,13 @@ namespace BancaTest2.Models
                 .HasKey(c => new { c.MovimentoDareId, c.ClienteId });
             modelBuilder.Entity<MovimentoAvere>()
             .HasKey(c => new { c.MovimentoAvereId, c.ClienteId });*/
-            modelBuilder.Entity<MovimentoUtente>(eb =>{
-          eb.HasNoKey();
-          eb.ToView("MovimentiUtente");
+
+          //  modelBuilder.Entity<MovimentoUtente>(eb =>{
+          //eb.HasNoKey();
+          //eb.ToView("MovimentiUtente");
+
          // eb.Property(v => v.BlogName).HasColumnName("Name");
-      });
+     // });
 
 
 
