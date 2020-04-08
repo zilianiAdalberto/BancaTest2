@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BancaTest2.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -20,19 +21,20 @@ namespace BancaTest2
 
              
             var host = CreateWebHostBuilder(args).Build();  // richiama metodo sottostante per inzializzare kestrel
-            //using (var scope = host.Services.CreateScope()) //parametro di inzializzazioen dentro
-            //{
-            //    var services = scope.ServiceProvider;
-            //    try
-            //    {
-            //        var context = services.GetRequiredService<AppDbContext>(); //inizializza db
-            //        DbInitializer.Seed(context);
-            //    }
-            //    catch (Exception)
-            //    {
-            //        throw;
-            //    }
-            //}
+            using (var scope = host.Services.CreateScope()) //parametro di inzializzazioen dentro
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<AppDbContext>(); //inizializza db
+           //         AppSeed.Seed(context);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                }
+            }
+
             host.Run();
 
 

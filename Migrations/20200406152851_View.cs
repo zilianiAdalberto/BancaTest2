@@ -9,9 +9,9 @@ namespace BancaTest2.Migrations
             migrationBuilder.Sql(@"
 CREATE VIEW MovimentiUtente
 AS
-SELECT CLienteId, MovimentoData, Cifra from MovimentiDare
+SELECT UtenteId, MovimentoData, Cifra from MovimentiDare
 UNION ALL
-SELECT CLienteId, MovimentoData, Cifra from MovimentiAvere
+SELECT UtenteId, MovimentoData, Cifra from MovimentiAvere
 ");
         }
 

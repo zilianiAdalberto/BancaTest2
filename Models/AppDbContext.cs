@@ -25,7 +25,7 @@ namespace BancaTest2.Models
 
         }
 
-        public DbSet<Cliente> Clienti { get; set; }
+   //     public DbSet<Cliente> Clienti { get; set; }
 
         public DbSet<MovimentoDare> MovimentiDare { get; set; }
 
