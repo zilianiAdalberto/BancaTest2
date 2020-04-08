@@ -33,8 +33,8 @@ namespace BancaTest2.Controllers
        public async Task<IActionResult> Index()
         {
             ViewBag.Roles = _roleManager.Roles;
-            var u = await _userManager.GetUserAsync(HttpContext.User); //utente collegato
-            var movimenti = _appdbcontext.MovimentiUtente.Where(mu => mu.MovimentoUtenteId.Equals(u.Id)); //id utente  collegato
+      //      var u = await _userManager.GetUserAsync(HttpContext.User); //utente collegato
+           // var movimenti = _appdbcontext.MovimentiUtente.Where(mu => mu.MovimentoUtenteId.Equals(u.Id)); //id utente  collegato
 
             return View();
         }
