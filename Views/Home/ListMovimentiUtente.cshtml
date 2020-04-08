@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BancaTest2.Models.MovimentoDare>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovimentoData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cifra)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovimentoData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cifra)
+            </td>
+            <td>
+@*<a asp-action="Edit" asp-route-id="@item.MovimentoUtenteId">Edit</a> |*@
+                @*<a asp-action="Details" asp-route-id="@item.MovimentoUtenteId">Details</a> |*@
+                @*<a asp-action="Delete" asp-route-id="@item.MovimentoUtenteId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

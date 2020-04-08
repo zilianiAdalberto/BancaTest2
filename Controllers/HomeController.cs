@@ -84,6 +84,14 @@ namespace BancaTest2.Controllers
 
 
 
+        public async Task<ActionResult<IEnumerable<MovimentoUtente>>> ListMovimentiUtente()
+        {
+
+            var movimenti = await _appdbcontext.MovimentiUtente.ToListAsync();
+
+            return View(movimenti);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -8,6 +8,7 @@
         <h1 class="display-4">Ciao @User.Identity.Name</h1>
 
         @this.Html.ActionLink("Operazioni", "CreateOperazione", "Home")
+        @this.Html.ActionLink("Movimenti", "GetMovimenti", "Home")
         <ul>
             @foreach (IdentityRole role in ViewBag.Roles)
             {
