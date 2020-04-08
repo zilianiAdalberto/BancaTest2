@@ -87,8 +87,11 @@ namespace BancaTest2.Controllers
       
             public async Task<ActionResult<IEnumerable<MovimentoUtente>>> ListMovimentiUtente()
             {
-                //   return await _context.Biglietti.ToListAsync();
-                var movimenti = await _appdbcontext.MovimentiUtente.ToListAsync();
+            //   return await _context.Biglietti.ToListAsync();
+
+            var u = await _userManager.GetUserAsync(HttpContext.User); //utente collegato
+            var movimenti = await _appdbcontext.MovimentiUtente.Where(mu => mu.UtenteId.Equals(u.Id)).ToListAsync();
+  
 
                 return View(movimenti);
             }
